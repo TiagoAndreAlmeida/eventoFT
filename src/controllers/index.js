@@ -103,7 +103,7 @@ exports.realizarInscricao = (req, res, next) => {
         }
     });
 }
-
+ 
 exports.getEventosParticipante = (req, res, next) => {
     client.query('select e.* from eventos e, participantes p, inscricoes i where p.id = $1 and p.id = i.participante and i.evento = e.id', [req.params.id], (err, result) => {
         if(err){
