@@ -17,6 +17,7 @@ router.get('/eventos/:id', controller.getEventosId);
 router.get('/inscricoes', controller.getInscrioes);
 router.get('/inscricoes/:id', controller.getInscrioesId);
 
+//rota post
 router.post('/inscricoes', controller.realizarInscricao)
 
 module.exports = router;

@@ -15,6 +15,7 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false}));
 
 app.use('/', index);
+//permite que todas as req
 app.use(cors());
 
 module.exports = app;

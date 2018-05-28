@@ -83,7 +83,7 @@ exports.getInscrioesId = (req, res, next) => {
         }
     });
 };
-
+//post 
 exports.realizarInscricao = (req, res, next) => {
 
     console.log(req.body);
