@@ -12,6 +12,8 @@ router.get('/participantes/:id', controller.getParticipantesId);
 //rota de eventos
 router.get('/eventos', controller.getEventos);
 router.get('/eventos/:id', controller.getEventosId);
+//roda de eventos do participante
+router.get('eventosparticipante/:id', controller.getEventosParticipante);
 
 //roda de inscricoes
 router.get('/inscricoes', controller.getInscrioes);

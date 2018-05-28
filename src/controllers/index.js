@@ -103,3 +103,17 @@ exports.realizarInscricao = (req, res, next) => {
         }
     });
 }
+
+exports.getEventosParticipante = (req, res, next) => {
+    client.query('select e.* from eventos e, participantes p, inscricoes i where p.id = $1 and p.id = i.participante and i.evento = e.id', [req.params.id], (err, result) => {
+        if(err){
+            console.log(err.stack);
+            res.status(400).send('{"retorno" : "Erro ao retornar dados"}');
+        }else{
+            res.header("Access-Control-Allow-Origin", "*");
+            res.status(200).send(
+                result.rows
+            );
+        }
+    });
+}
