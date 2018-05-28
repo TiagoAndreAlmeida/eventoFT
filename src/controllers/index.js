@@ -83,3 +83,23 @@ exports.getInscrioesId = (req, res, next) => {
         }
     });
 };
+
+exports.realizarInscricao = (req, res, next) => {
+
+    console.log(req.body);
+    console.log(req.body.idParticipante);
+    console.log(req.body.idEvento);
+
+    let idParticipante = req.body.idParticipante;
+    let idEvento = req.body.idEvento;
+
+    client.query('INSERT INTO INSCRICOES(participante, evento, data) VALUES($1, $2, CURRENT_TIMESTAMP)',[idParticipante, idEvento], (err, result) => {
+        if(err){
+            console.log(err.stack);
+            res.status(400).send('{"retorno" : "Erro ao realizar inscrição"}');
+        }else{
+            res.header("Access-Control-Allow-Origin", "*");
+            res.status(200).send('{"retorno" : "Inscrição realizada com sucesso"}');
+        }
+    });
+}
