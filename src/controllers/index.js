@@ -125,7 +125,7 @@ exports.createAccount = (req, res, next) => {
             res.status(400).send('{"retorno" : "Erro ao cadastrar dados"}');
         }else{
             res.header("Access-Control-Allow-Origin", "*");
-            res.status(200).send('{"retorno" : "Conta criada com sucesso"}');
+            res.status(200).send('{"retorno" : "Conta criada com sucesso"}'); 
         }
     });
 }

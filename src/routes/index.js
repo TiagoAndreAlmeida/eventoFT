@@ -25,4 +25,4 @@ router.post('/inscricoes', controller.realizarInscricao);
 //rota criar conta
 router.post('/createaccount', controller.createAccount);
 
-module.exports = router;
+module.exports = router; 
