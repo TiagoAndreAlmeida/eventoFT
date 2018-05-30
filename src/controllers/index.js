@@ -105,7 +105,7 @@ exports.realizarInscricao = (req, res, next) => {
 }
  
 exports.getEventosParticipante = (req, res, next) => {
-    client.query('select e.* from eventos e, participantes p, inscricoes i where p.id = $1 and p.id = i.participante and i.evento = e.id', [req.params.id], (err, result) => {
+    client.query('SELECT e.* FROM eventos e, participantes p, inscricoes i WHERE p.id = $1 AND p.id = i.participante AND i.evento = e.id', [req.params.id], (err, result) => {
         if(err){
             console.log(err.stack);
             res.status(400).send('{"retorno" : "Erro ao retornar dados"}');
@@ -114,6 +114,18 @@ exports.getEventosParticipante = (req, res, next) => {
             res.status(200).send(
                 result.rows
             );
+        }
+    });
+}
+
+exports.createAccount = (req, res, next) => {
+    client.query('INSERT INTO participantes(telefone, email, senha, nome) VALUES ($1, $2, $3, $4)', [req.body.telefone, req.body.email, req.body.senha, req.body.nome], (err, result) => {
+        if(err){
+            console.log(err.stack);
+            res.status(400).send('{"retorno" : "Erro ao cadastrar dados"}');
+        }else{
+            res.header("Access-Control-Allow-Origin", "*");
+            res.status(200).send('{"retorno" : "Conta criada com sucesso"}');
         }
     });
 }

@@ -20,6 +20,9 @@ router.get('/inscricoes', controller.getInscrioes);
 router.get('/inscricoes/:id', controller.getInscrioesId);
 
 //rota post
-router.post('/inscricoes', controller.realizarInscricao)
+router.post('/inscricoes', controller.realizarInscricao);
+
+//rota criar conta
+router.post('/createaccount', controller.createAccount);
 
 module.exports = router;
